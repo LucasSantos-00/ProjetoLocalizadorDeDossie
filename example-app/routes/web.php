@@ -23,6 +23,9 @@ Route::get('/',[DossieController::class, 'index']);
 
 Route::get('/dossies/criar',[DossieController::class, 'criar']);
 
+Route::get('/dossies/{id}',[DossieController::class, 'mostrar']);
+
+
 //Rotas POST
 
 Route::post('/dossies', [DossieController::class, 'store']);

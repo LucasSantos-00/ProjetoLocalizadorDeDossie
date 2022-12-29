@@ -41,8 +41,9 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                        <a class="nav-link" href='/dossies/mostrar'>Mostrar Um Dossie</a>
                     </li>
+
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="Procurar" placeholder="Procurar" aria-label="Procurar">
@@ -55,7 +56,18 @@
 
 </header>
 
-@yield('content')
+<main>
+
+    <div class="container-fluid">
+        <div class="row">
+            @if(session('msg'))
+                <p class="msg">{{ session('msg') }}</p>
+            @endif
+            @yield('content')
+        </div>
+    </div>
+
+</main>
 
 <footer>Teste Do TCC parte Do LUCAS O Brabo</footer>
 
