@@ -11,11 +11,26 @@ class DossieController extends Controller
 {
 
     public function index(){
-    //  funcao de pegar os dados do banco de forma geral e sem parametros
 
-        $dossies = Dossie::all();
+        // Busca por nomes e futuramente curso e matricula
 
-        return view('welcome', ['dossies' => $dossies ]);
+        $search = request('search');
+
+        if($search){
+
+        $dossies = Dossie::where([
+
+            ['nome', 'like', '%'.$search.'%']
+
+        ]) -> get();
+
+        }else{
+
+            $dossies = Dossie::all();
+
+        }
+
+        return view('welcome', ['dossies' => $dossies, 'seaech' => $search]);
 
     }
 
@@ -48,7 +63,7 @@ class DossieController extends Controller
     public function mostrar($id){
     //  funçao para mostrar os dossies com o id do mesmo
 
-    $dossie = Dossie::findOrFail('1'); // onde estar o ('1') seria o ID para busca-lo, porem nao consegui colocar essa busca na view aindda.
+    $dossie = Dossie::findOrFail('1'); // onde estar o ('1') seria o ID para busca-lo, porem nao consegui colocar essa busca na view ainda.
 
     return view('dossies.mostrar' , ['dossie' => $dossie]);
 

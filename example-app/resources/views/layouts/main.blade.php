@@ -45,8 +45,8 @@
                     </li>
 
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="Procurar" placeholder="Procurar" aria-label="Procurar">
+                <form action="/" method="get">
+                    <input type="text" id="search" name="search" class="form-control" placeholder="Procurar" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Procurar</button>
                 </form>
             </div>
