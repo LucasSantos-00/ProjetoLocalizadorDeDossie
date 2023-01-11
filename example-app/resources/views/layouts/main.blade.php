@@ -69,8 +69,7 @@
 
 </main>
 
-<footer>Teste Do TCC parte Do LUCAS O Brabo</footer>
-
+<footer>Teste Do TCC</footer>
 
 </body>
 </html>
