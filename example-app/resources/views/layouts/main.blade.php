@@ -37,7 +37,6 @@
 {{--                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link" href='/dossies/criar'>Criar Um Dossie</a>
-
                     </li>
 
                     </li>
