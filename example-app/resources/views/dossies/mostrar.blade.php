@@ -1,31 +1,53 @@
+{{--Tela De Inicio Do App--}}
+
 @extends('layouts.main')
 
-@section('title', $dossie -> title)
+@section('title', 'Mostrar Dossie')
 
 @section('content')
 
-    <div class="col-md-10 offset-md-1-offset-md-1">
-        <div class="row">
+    @foreach($dossies as $dossie)
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Matricula</th>
+                <th scope="col">Curso</th>
+                <th scope="col">Estante</th>
+                <th scope="col">Lado</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if(count($dossies) > 0 )
+                <tr>
+                    <th scope="row">{{$dossie->id}}</th>
+                    <td>{{$dossie->nome}}</td>
+                    <td>{{$dossie->matricula}}</td>
+                    <td>{{$dossie->curso}}</td>
+                    <td>{{$dossie->estante}}</td>
+                    <td>{{$dossie->lado}}</td>
 
-            <div id="info-container" class="col-md-6">
+                    <td>
 
-                <h1>{{ $dossie -> nome }}</h1>
-                <p class="dossie-idade">{{ $dossie -> idade }}</p>
-                <p class="dossie-matricula">{{ $dossie -> matricula }}</p>
-                <p class="dossie-curso">{{ $dossie -> curso }}</p>
-                <p class="dossie-estante">{{ $dossie -> estante }}</p>
-                <p class="dossie-lado">{{ $dossie -> lado }}</p>
+                        <a href="#" class="btn btn-info edit-btn" >Editar </a>
+                        <form action="/dossies/{{  $dossie->id }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger delete-btn"></button>
 
-
-
-            </div>
-
-        </div>
-    </div>
+                        </form>
 
 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
+        @else
+            <p>Nenhum dossie encontrado, <a href="/dossies/criar">Para Inseri um dossie</a></p>
+        @endif
 
-
+    @endforeach
 
 @endsection

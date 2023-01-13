@@ -6,3 +6,17 @@ color: #1c7430;
     text-align: center;
     padding: 10px;
 }
+
+/*CSS da parte de mostrar os alunos na pesquisa e no inicio*/
+
+.welcome-title-container{
+
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.welcome-dossies-container th {
+
+width: 25%;
+
+}

@@ -41,7 +41,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href='/dossies/mostrar'>Mostrar Um Dossie</a>
+                        <a class="nav-link" href='dossies/mostrar'>Mostrar Um Dossie</a>
                     </li>
 
                 </ul>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Dossie;
 use Illuminate\Support\Facades\DB;
@@ -20,14 +21,13 @@ class DossieController extends Controller
         if ($search) {
 
             $dossies = DB::table('dossies')
+                ->where('nome', 'like', '%' . $search . '%') // Busca por nome do aluno
 
-              -> where  ('nome', 'like', '%' . $search . '%') // Busca por nome do aluno
+                ->orwhere('matricula', 'like', '%' . $search . '%') // Busca por matricula do aluno
 
-                -> orwhere  ('matricula', 'like', '%' . $search . '%') // Busca por matricula do aluno
+                ->orwhere('curso', 'like', '%' . $search . '%') // Busca por curso/sala do aluno
 
-                -> orwhere  ('curso', 'like', '%' . $search . '%') // Busca por curso/sala do aluno
-
-                -> get(); // get para obter os dados solicitados
+                ->get(); // get para obter os dados solicitados
 
         } else {
 
@@ -67,13 +67,44 @@ class DossieController extends Controller
 
     }
 
-    public function mostrar($id)
+    public function mostra($id)
     {
         //  funçao para mostrar os dossies com o id do mesmo
 
-        $dossie = Dossie::findOrFail('3'); // onde estar o ('1') seria o ID para busca-lo, porem nao consegui colocar essa busca na view ainda.
+//        $dossie = Dossie::findOrFail('id'); // onde estar o ('1') seria o ID para busca-lo, porem nao consegui colocar essa busca na view ainda.
 
-        return view('dossies.mostrar', ['dossie' => $dossie]);
+        // $dossieOwner = User::where('id',$dossie->user_id)->first()->toArray(); // Futura funçao para mostrar quem fez certas mudanças no app (Na base de dados dos dossies etc...)
+
+        // Busca por nomes , matricula , curso .
+
+        $search = request('search');
+
+        if ($search) {
+
+            $dossies = DB::table('dossies')
+                ->where('nome', 'like', '%' . $search . '%') // Busca por nome do aluno
+
+                ->orwhere('matricula', 'like', '%' . $search . '%') // Busca por matricula do aluno
+
+                ->orwhere('curso', 'like', '%' . $search . '%') // Busca por curso/sala do aluno
+
+                ->get(); // get para obter os dados solicitados
+
+        } else {
+
+            $dossies = Dossie::all(); // caso a barra de pesquisa nao for preenchida mostrar todos os dados
+
+        }
+
+        return view('dossies/mostrar', ['dossies' => $dossies, 'seaech' => $search]); // retornar a a views (COM O FILTRO APLICADO) com os dados
+    }
+
+    public function destroy($id){
+
+        Dossie::findOrfail($id)->delete();
+
+        return redirect('/')->with('msg', 'Dossie apagado com exido');
+
     }
 
 }

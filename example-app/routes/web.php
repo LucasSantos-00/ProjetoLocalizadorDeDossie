@@ -23,10 +23,14 @@ Route::get('/',[DossieController::class, 'index']);
 
 Route::get('/dossies/criar',[DossieController::class, 'criar']);
 
-Route::get('/dossies/{id}',[DossieController::class, 'mostrar']);
+Route::get('/dossies/{id}',[DossieController::class, 'mostra']);
 
 //Rotas POST
 
 Route::post('/dossies', [DossieController::class, 'store']);
+
+//Rotas Delete
+
+Route::delete('/dossies/{id}',[DossieController::class, 'destroy']);
 
 
