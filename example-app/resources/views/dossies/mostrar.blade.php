@@ -29,16 +29,12 @@
                     <td>{{$dossie->lado}}</td>
 
                     <td>
-
                         <a href="#" class="btn btn-info edit-btn" >Editar </a>
                         <form action="/dossies/{{  $dossie->id }}" method="POST">
                             @csrf
                             @method('delete')
                             <button type="submit" class="btn btn-danger delete-btn"></button>
-
                         </form>
-
-
                     </td>
                 </tr>
             </tbody>
