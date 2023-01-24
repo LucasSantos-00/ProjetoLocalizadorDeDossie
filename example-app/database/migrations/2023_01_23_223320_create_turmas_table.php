@@ -15,27 +15,25 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dossies', function (Blueprint $table) {
+        Schema::create('turmas', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('idade');
-            $table->string('matricula');
-            $table->string('curso');
-            $table->string('turma');
-            $table->string('estante');
-            $table->string('lado');
+            $table->string('nomeCurso');
             $table->timestamps();
 
+            $table->unsignedBigInteger('id_dossie');
+            $table->foreign('id_dossie')->references('id')->on('dossies');
+
         });
+
     }
 
-    /**
+    /**a
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('dossies');
+        Schema::dropIfExists('turmas');
     }
 };

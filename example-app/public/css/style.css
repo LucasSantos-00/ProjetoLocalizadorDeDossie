@@ -1,0 +1,93 @@
+/* Fonte utilizada na aplicação */
+*{
+    scroll-behavior: smooth;
+    font-family: 'Open Sans';
+}
+body,html{
+    height: 100%;
+    background-color: #404258;
+}
+.navbar{
+    background-color: #474E68;
+}
+#btn-nav{
+    font-size: small;
+    color: #F7f7f7;
+    border-color: #404258;
+    background-color: #6B728E;
+}
+#btn-nav:hover{
+    box-shadow: 1px 1px 1px 2px #404258;
+    color: #6B728E;
+    background-color: #F7f7f7;
+}
+#nav-input{
+    font-size: small;
+    height: 32px;
+    box-shadow: 1px 1px 1px 2px #404258;
+    background-color: #F7f7f7;
+    border-color: #404258;
+}
+#nav-link{
+    font-size: small;
+    color: #F7f7f7;
+    border-color: #404258;
+    background-color: #6B728E;
+}
+#nav-link:hover{
+    box-shadow: 1px 1px 1px 2px #404258;
+    color: #6B728E;
+    background-color: #F7f7f7;
+}
+#nav-dropdown{
+    background-color: #F7f7f7 ;
+    font-size: smaller;
+    position: absolute;
+    inset: 0px 0px auto auto;
+    margin-right: 12px;
+    margin-top: 5px;
+    transform: translate(0px, 34px);
+    padding: 3px;
+}
+.dropdown-divider{
+    margin: 3px;
+}
+#sideBar{
+    scroll-snap-align: center;
+    overflow: auto;
+    text-align: center;
+    margin-top: 1px;
+    border-radius: 1%;
+    height:100%;
+    background-color: #50577A;
+    width: 270px;
+}
+#lateralTitle{
+    font-size: 30px;
+    color: #F7f7f7;
+}
+#lateralDivider{
+    margin: 8px;
+    color: #F7f7f7;
+}
+#curso{
+    margin-top: 5px;
+    color: #F7f7f7;
+    background-color: #404258;
+}
+.container-flex{
+    width: 100%;
+    height: calc(100% - 49px);
+}
+.row{
+    width: 100%;
+    height: 100%
+}
+#dynamicContent{
+    align-items: center;
+    margin-right: auto ;
+    margin-left: auto;
+    margin-bottom: 0;
+    margin-top: 0 ;
+    border: 2px dotted #F7f7f7;
+}

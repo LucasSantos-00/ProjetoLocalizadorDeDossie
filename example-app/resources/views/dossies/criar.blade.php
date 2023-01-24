@@ -36,8 +36,14 @@
 
             <div class="form-group">
                 <label for="title">Curso:</label>
-                <input type="text" class="form-control" id="curso" name="curso" placeholder="Curso do Aluno">
+                <input type="text" class="form-control" id="" name="curso" placeholder="Curso do Aluno">
             </div>
+
+            <div class="form-group">
+                <label for="title">Turma:</label>
+                <input type="text" class="form-control" id="turma" name="turma" placeholder="Nome do Aluno">
+            </div>
+
 
 {{--            Estante que o aluno esta--}}
 

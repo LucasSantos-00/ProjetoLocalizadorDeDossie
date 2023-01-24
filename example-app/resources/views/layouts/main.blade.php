@@ -1,5 +1,3 @@
-{{--Layout Fixo e a NavBar--}}
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -8,69 +6,87 @@
 
     <title>@yield('title')</title>
 
-    {{--    Fonte do Google--}}
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
-
-    {{--    CSS Bootstrap--}}
+    <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-    {{--    CSS da aplicaçao--}}
-    <link rel="stylesheet" href="/css/app.css" >
-    <script src="/js/app.js"></script>
+    <!-- CSS file -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- Bootstrap Js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
 </head>
-
-<body class="antialiased">
-
-<header>
-
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Inicio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link active" aria-current="page" href="/contato">Contato</a>--}}
-{{--                    </li>--}}
-                    <li class="nav-item">
-                        <a class="nav-link" href='/dossies/criar'>Criar Um Dossie</a>
-
-                    </li>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href='/dossies/mostrar'>Mostrar Um Dossie</a>
-                    </li>
-
-                </ul>
-                <form action="/" method="get">
-                    <input type="text" id="search" name="search" class="form-control" placeholder="Procurar" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Procurar</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-
-</header>
-
-<main>
-
+<body>
+<!-- Nav Bar-->
+<nav class="navbar bg-body-tertiary expand-lg">
     <div class="container-fluid">
-        <div class="row">
-            @if(session('msg'))
-                <p class="msg">{{ session('msg') }}</p>
-            @endif
-            @yield('content')
+        <form class="d-flex" role="search" action="/" method="get" >
+            <input class="form-control me-2" type="search" placeholder="Pesquisar Aluno" aria-label="Search" name="search" id="search">
+            <button class="btn btn-sm" type="submit" id="btn-nav">Buscar</button>
+        </form>
+        <div class="nav-item">
+            <a href="/dossies/criar" class="btn btn-sm" id="nav-link"><i class="bi bi-plus-circle"></i> Criar Aluno</a>
+            <a href="/turmas/criar" class="btn btn-sm" id="nav-link"><i class="bi bi-plus-circle"></i> Criar Turma</a>
+            <a href="/" class="btn btn-sm" id="nav-link">Inicio</a>  {{-- Apagar Futuramente Essa Linha --}}
+            <a href="" class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="nav-link"><i class="bi bi-person-circle"></i> Usuário</a>
+            <ul class="dropdown-menu " data-popper-placement="bottom-end" aria-labelledby="nav-link" id="nav-dropdown">
+                <li>
+                    <a href="" class="dropdown-item">Conta</a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <a href="" class="dropdown-item">Sair</a>
+                </li>
+            </ul>
         </div>
     </div>
+</nav>
 
-</main>
+<!-- Barra Lateral -->
 
-<footer>Teste Do TCC</footer>
+<div class="container-flex">
+    <div class="row">
+        <div class="d-flex flex-column flex-shrink-0 p-3 col-6" id="sideBar">
+            <h1 id="lateralTitle">Cursos<i class="bi bi-arrow-down"></i></h1>
+            <hr class="divider" id="lateralDivider">
+
+            <form class="d-flex" role="search" action="/turmas/mostrar" method="get">
+
+            <button class="btn" type="submit" id="curso" name="DDS" >Desenvolvimento De Sistema</button>
+            </form>
+
+            <form class="d-flex" role="search" action="/turmas/mostrar" method="get">
+                <button class="btn" type="submit" id="curso" name="AUI" >Automação Industrial </button>
+            </form>
+
+            <a class="btn" id="curso" href=/turmas/erro>Mecatronica</a>
+            <a class="btn" id="curso" href="/turmas/erro">Mecanica</a>
+            <a class="btn" id="curso" href="/turmas/erro">Usinagem</a>
+            <a class="btn" id="curso" href="/turmas/erro">Eletrica</a>
+            <a class="btn" id="curso" href="/turmas/erro">Robotica</a>
+            <a class="btn" id="curso" href="/turmas/erro">Manutenção Automotiva</a>
+            <a class="btn" id="curso" href="/turmas/erro">Mecatrônica</a>
+            <a class="btn" id="curso" href="/turmas/erro">Eletrotécnica</a>
+            <a class="btn" id="curso" href="/turmas/erro">Redes de Computadores</a>
+            <a class="btn" id="curso" href="/turmas/erro">Administraçao</a>
+            <a class="btn" id="curso" href="/turmas/erro">Tornearia</a>
+
+        </div>
+        <div class="d-flex col-9" id="dynamicContent">
+            <div class="container">
+                @yield('content')
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

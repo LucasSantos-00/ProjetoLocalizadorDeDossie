@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Turma;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Dossie;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Echo_;
+use function GuzzleHttp\Promise\all;
 
 //Controller Do Dossie
 
@@ -31,11 +34,11 @@ class DossieController extends Controller
 
         } else {
 
-            $dossies = Dossie::all(); // caso a barra de pesquisa nao for preenchida mostrar todos os dados
+            return view('/dossies/criar');
 
         }
 
-        return view('welcome', ['dossies' => $dossies, 'seaech' => $search]); // retornar a a views (COM O FILTRO APLICADO) com os dados
+        return view('/dossies/mostrar', ['dossies' => $dossies, 'seaech' => $search]); // retornar a a views (COM O FILTRO APLICADO) com os dados
 
     }
 
@@ -58,35 +61,53 @@ class DossieController extends Controller
         $dossie->idade = $request->idade;
         $dossie->matricula = $request->matricula;
         $dossie->curso = $request->curso;
+        $dossie->turma = $request->turma;
         $dossie->estante = $request->estante;
         $dossie->lado = $request->lado;
-
         $dossie->save();
 
         return redirect('/')->with('msg', 'Dossie foi registrado com sucesso!');
 
     }
 
-    public function mostra($id)
+    public function criarTurma()
     {
-        //  funçao para mostrar os dossies com o id do mesmo
+        //  rota para a view de criar turmas q possibilita a criaçao de turmas no banco de dados
 
-//        $dossie = Dossie::findOrFail('id'); // onde estar o ('1') seria o ID para busca-lo, porem nao consegui colocar essa busca na view ainda.
+        return view('turmas.criar');
 
-        // $dossieOwner = User::where('id',$dossie->user_id)->first()->toArray(); // Futura funçao para mostrar quem fez certas mudanças no app (Na base de dados dos dossies etc...)
+    }
 
-        // Busca por nomes , matricula , curso .
+    public function criarTurmas(Request $request)
+    {
+        //  funcao para criar turmas no banco
+
+        $turmas = new Turma;
+
+        $turmas->nomeCurso = $request->nomeCurso;
+
+        $turmas->save();
+
+        return view('/turmas/criar', ['turma' => $turmas]);
+
+    }
+
+    public function mostra()
+    {
 
         $search = request('search');
 
         if ($search) {
 
             $dossies = DB::table('dossies')
+
                 ->where('nome', 'like', '%' . $search . '%') // Busca por nome do aluno
 
                 ->orwhere('matricula', 'like', '%' . $search . '%') // Busca por matricula do aluno
 
                 ->orwhere('curso', 'like', '%' . $search . '%') // Busca por curso/sala do aluno
+
+                ->orwhere('turma', 'like', '%' . $search . '%') // Busca por curso/sala do aluno
 
                 ->get(); // get para obter os dados solicitados
 
@@ -96,15 +117,59 @@ class DossieController extends Controller
 
         }
 
-        return view('dossies/mostrar', ['dossies' => $dossies, 'seaech' => $search]); // retornar a a views (COM O FILTRO APLICADO) com os dados
+        if ($search = "DDS-3/11") {
+
+            $dossies = DB::table('dossies')
+                ->where('turma',  'like', '%' . $search . '%')->get();
+
+        }elseif ($search = "AUI"){
+
+            $dossies = DB::table('dossies')
+                ->where('turma',  'like', '%' . $search . '%')->get();
+
+        }
+
+        return view('/dossies/mostrar', ['dossies' => $dossies, 'seaech' => $search]); // retornar a a views (COM O FILTRO APLICADO) com os dados
     }
 
-    public function destroy($id){
 
+    public function mostrarTurma()
+    {
+        $search = request('search');
+
+        if ($search = "DDS") {
+
+            $dossies = DB::table('dossies')
+                ->where('turma',  'like', '%' . $search . '%')->get();
+
+        } else {
+
+             $dossies = Dossie::all(); // caso a barra de pesquisa nao for preenchida mostrar todos os dados
+        }
+
+        return view('/turmas/mostrar', ['dossies' => $dossies, 'search' => $search]);
+
+    }
+
+    public function mostrarErro(){
+
+        return view('/turmas/erro');
+
+    }
+
+    public function mostrarPerfil(){
+
+        return view('/dossies/perfil');
+    }
+
+    public function destroy($id)
+    {
         Dossie::findOrfail($id)->delete();
 
         return redirect('/')->with('msg', 'Dossie apagado com exido');
 
     }
+
+
 
 }
