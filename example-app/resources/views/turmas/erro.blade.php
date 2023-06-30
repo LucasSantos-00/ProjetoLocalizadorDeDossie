@@ -3,7 +3,19 @@
 @section('title', 'Mostrar Turmas')
 
 @section('content')
-
-    <h2>Nenhuma turma foi encontrada nesse curso, por favor crie a turma desejada aqui<a class="btn" id="btn-nav" href="/turmas/criar">Criar Turma</a></h2>
-
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center">Nenhuma turma foi encontrada nesse curso</h2>
+                        <p class="text-center">Por favor, crie a turma desejada:</p>
+                        <div class="text-center">
+                            <a class="btn btn-primary btn-center" href="/turmas/criar">Criar Turma</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

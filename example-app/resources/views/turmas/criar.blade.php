@@ -1,30 +1,37 @@
-{{--Formulario para criar um dossie e adicina-lo no banco de dados--}}
-
 @extends('layouts.main')
 
 @section('title', 'Criar Turmas')
 
 @section('content')
 
-    <div id="turma-create-container" class="col-md-6-offset-md-3">
-        <h1>Criando Uma Turma Nova</h1>
-        <form action="/" method="post">
-            @csrf
-
-{{--    Nome do curso:--}}
-
-            <div class="form-group">
-                <label for="title">Nome do Curso:</label>
-                <input type="text" class="form-control" id="nomeCurso" name="nomeCurso" placeholder="Nome do Curso">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center mb-4">Criando Uma Nova Turma</h1>
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <label for="nomeCurso" class="form-label">Nome do Curso:</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="nomeCurso" name="nomeCurso" placeholder="Nome do Curso" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Inserir Curso</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-
-{{--    Botao para enviar o formulario      --}}
-
-            <input type="submit" class="btn btn-primary" value="Inserir Curso">
-
-       </form> {{-- Fim da funcao formulario--}}
+        </div>
     </div>
 
 @endsection
 
-
+<head>
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+</head>

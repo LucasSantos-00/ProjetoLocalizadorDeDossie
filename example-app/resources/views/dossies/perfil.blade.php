@@ -4,6 +4,6 @@
 
 @section('content')
 
-    <p>kkkkkkkkkkkkkkk, burro</p>
+    <p>Pagina nao encontrada =(</p>
 
 @endsection

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Turma;
@@ -35,9 +34,7 @@ class DossieController extends Controller
         } else {
 
             return view('/dossies/criar');
-
         }
-
         return view('/dossies/mostrar', ['dossies' => $dossies, 'seaech' => $search]); // retornar a a views (COM O FILTRO APLICADO) com os dados
 
     }
@@ -55,7 +52,6 @@ class DossieController extends Controller
         //  funcao para colocar os dados no banco
 
         $dossie = new Dossie;
-
         $dossie->id = $request->id;
         $dossie->nome = $request->nome;
         $dossie->idade = $request->idade;
@@ -73,7 +69,6 @@ class DossieController extends Controller
     public function criarTurma()
     {
         //  rota para a view de criar turmas q possibilita a criaçao de turmas no banco de dados
-
         return view('turmas.criar');
 
     }
@@ -83,9 +78,7 @@ class DossieController extends Controller
         //  funcao para criar turmas no banco
 
         $turmas = new Turma;
-
         $turmas->nomeCurso = $request->nomeCurso;
-
         $turmas->save();
 
         return view('/turmas/criar', ['turma' => $turmas]);
@@ -126,9 +119,7 @@ class DossieController extends Controller
 
             $dossies = DB::table('dossies')
                 ->where('turma',  'like', '%' . $search . '%')->get();
-
         }
-
         return view('/dossies/mostrar', ['dossies' => $dossies, 'seaech' => $search]); // retornar a a views (COM O FILTRO APLICADO) com os dados
     }
 
@@ -140,6 +131,7 @@ class DossieController extends Controller
         if ($search = "DDS") {
 
             $dossies = DB::table('dossies')
+
                 ->where('turma',  'like', '%' . $search . '%')->get();
 
         } else {
@@ -152,7 +144,6 @@ class DossieController extends Controller
     }
 
     public function mostrarErro(){
-
         return view('/turmas/erro');
 
     }
@@ -162,14 +153,10 @@ class DossieController extends Controller
         return view('/dossies/perfil');
     }
 
-    public function destroy($id)
+    public function destroy($id)    // funçao para apagar dados dos bancos
     {
         Dossie::findOrfail($id)->delete();
-
         return redirect('/')->with('msg', 'Dossie apagado com exido');
 
     }
-
-
-
 }

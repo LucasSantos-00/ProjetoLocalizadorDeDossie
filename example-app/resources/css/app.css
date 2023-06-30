@@ -1,0 +1,62 @@
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.container-flex {
+    margin-top: 20px;
+}
+
+#sideBar {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#lateralTitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#lateralDivider {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#dynamicContent {
+    padding: 20px;
+}
+
+.btn-dark {
+    background-color: #343a40;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.btn-dark:hover {
+    background-color: #23272b;
+    color: #fff;
+}
+
+.btn-primary {
+    margin-right: 10px;
+}
+
+.dropdown-menu {
+    min-width: 150px;
+}
+
+.dropdown-divider {
+    margin: 5px 0;
+}
+
+.divider {
+    border-top: 1px solid #dee2e6;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    #dynamicContent {
+        padding-top: 0;
+    }
+}

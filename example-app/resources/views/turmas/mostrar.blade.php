@@ -3,34 +3,28 @@
 @section('title', 'Mostrar Turmas')
 
 @section('content')
-
-    @foreach($dossies as $dossie)
-        @if(count($dossies) > 0 )
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Turma</th>
-            </tr>
-            </thead>
-            <tbody>
+    <div class="container">
+        @if(count($dossies) > 0)
+            <table class="table text-center">
+                <thead>
                 <tr>
-                    <td>{{$dossie->turma}}</td>
-                    <td>
-                        <a class="btn" id="btn-nav" href="/dossies/mostrar">Mostrar Alunos</a>
-
-{{--                        <form action="/dossies/{{  $dossie->id }}" method="POST">--}}
-{{--                            @csrf--}}
-{{--                            @method('delete')--}}
-{{--                            <button type="submit" class="btn btn-danger delete-btn">Dell</button>--}}
-{{--                        </form>--}}
-                    </td>
+                    <th scope="col">Turma</th>
+                    <th scope="col">Ações</th>
                 </tr>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                @foreach($dossies as $dossie)
+                    <tr>
+                        <td class="align-middle text-center">{{ $dossie->turma }}</td>
+                        <td class="align-middle text-center">
+                            <a class="btn btn-primary" href="/dossies/mostrar">Mostrar Alunos</a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         @else
-            <p>Nenhum dossie encontrado, <a href="/turmas/criar">Para Inseri um dossie</a></p>
+            <p class="text-center">Nenhum dossie encontrado. <a href="/turmas/criar">Clique aqui</a> para inserir um dossie.</p>
         @endif
-
-    @endforeach
-
+    </div>
 @endsection

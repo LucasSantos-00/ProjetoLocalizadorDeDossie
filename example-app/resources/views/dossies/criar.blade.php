@@ -1,69 +1,58 @@
-{{--Formulario para criar um dossie e adicina-lo no banco de dados--}}
-
 @extends('layouts.main')
 
 @section('title', 'Criar Dossie')
 
 @section('content')
 
-    <div id="dossie-create-container" class="col-md-6-offset-md-3">
-        <h1>Criando Um Dossie</h1>
+    <div id="dossie-create-container" class="col-md-6 offset-md-3">
+        <h1>Criando um Dossie</h1>
         <form action="/dossies" method="post">
             @csrf
 
-{{--            Nome do aluno:--}}
-
+            <!-- Nome do aluno -->
             <div class="form-group">
-                <label for="title">Nome do Aluno:</label>
+                <label for="nome">Nome do Aluno:</label>
                 <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Aluno">
             </div>
 
-{{--            Idade do aluno:--}}
-
+            <!-- Idade do aluno -->
             <div class="form-group">
-                <label for="title">Idade:</label>
+                <label for="idade">Idade:</label>
                 <input type="text" class="form-control" id="idade" name="idade" placeholder="Idade do Aluno">
             </div>
 
-{{--            Matricula do aluno:--}}
-
+            <!-- Matricula do aluno -->
             <div class="form-group">
-                <label for="title">Matricula:</label>
+                <label for="matricula">Matricula:</label>
                 <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matricula do Aluno">
             </div>
 
-{{--            Curso/Turma do aluno--}}
-
+            <!-- Curso/Turma do aluno -->
             <div class="form-group">
-                <label for="title">Curso:</label>
-                <input type="text" class="form-control" id="" name="curso" placeholder="Curso do Aluno">
+                <label for="curso">Curso:</label>
+                <input type="text" class="form-control" id="matricula" name="curso" placeholder="Curso do Aluno">
             </div>
 
             <div class="form-group">
-                <label for="title">Turma:</label>
-                <input type="text" class="form-control" id="turma" name="turma" placeholder="Nome do Aluno">
+                <label for="turma">Turma:</label>
+                <input type="text" class="form-control" id="turma" name="turma" placeholder="Turma do Aluno">
             </div>
 
-
-{{--            Estante que o aluno esta--}}
-
+            <!-- Estante que o aluno está -->
             <div class="form-group">
-                <label for="title">Estante:</label>
+                <label for="estante">Estante:</label>
                 <input type="text" class="form-control" id="estante" name="estante" placeholder="Estante do Aluno">
             </div>
 
-{{--            Lado em que a estante do aluno esta--}}
-
+            <!-- Lado em que a estante do aluno está -->
             <div class="form-group">
-                <label for="title">Lado:</label>
+                <label for="lado">Lado:</label>
                 <input type="text" class="form-control" id="lado" name="lado" placeholder="Lado do Aluno">
             </div>
 
-{{--            Botao para enviar o formulario--}}
-
-            <input type="submit" class="btn btn-primary" value="Inserir Aluno">
-
-       </form> {{-- Fim da funcao formulario--}}
+            <!-- Botão para enviar o formulário -->
+            <button type="submit" class="btn btn-primary">Inserir Aluno</button>
+        </form>
     </div>
 
 @endsection

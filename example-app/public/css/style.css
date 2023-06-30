@@ -1,46 +1,55 @@
 /* Fonte utilizada na aplicação */
-*{
+* {
     scroll-behavior: smooth;
     font-family: 'Open Sans';
 }
-body,html{
+
+body, html {
     height: 100%;
-    background-color: #404258;
+    background-color: #1e2029;
 }
-.navbar{
-    background-color: #474E68;
+
+.navbar {
+    background-color: #252733;
+    padding: 10px;
 }
-#btn-nav{
+
+#btn-nav {
     font-size: small;
-    color: #F7f7f7;
-    border-color: #404258;
-    background-color: #6B728E;
+    color: #f8f9fa;
+    border-color: #1e2029;
+    background-color: #343a40;
 }
-#btn-nav:hover{
-    box-shadow: 1px 1px 1px 2px #404258;
-    color: #6B728E;
-    background-color: #F7f7f7;
+
+#btn-nav:hover {
+    box-shadow: 1px 1px 1px 2px #1e2029;
+    color: #343a40;
+    background-color: #f8f9fa;
 }
-#nav-input{
+
+#nav-input {
     font-size: small;
     height: 32px;
-    box-shadow: 1px 1px 1px 2px #404258;
-    background-color: #F7f7f7;
-    border-color: #404258;
+    box-shadow: 1px 1px 1px 2px #1e2029;
+    background-color: #f8f9fa;
+    border-color: #1e2029;
 }
-#nav-link{
+
+#nav-link {
     font-size: small;
-    color: #F7f7f7;
-    border-color: #404258;
-    background-color: #6B728E;
+    color: #f8f9fa;
+    border-color: #1e2029;
+    background-color: #343a40;
 }
-#nav-link:hover{
-    box-shadow: 1px 1px 1px 2px #404258;
-    color: #6B728E;
-    background-color: #F7f7f7;
+
+#nav-link:hover {
+    box-shadow: 1px 1px 1px 2px #1e2029;
+    color: #343a40;
+    background-color: #f8f9fa;
 }
-#nav-dropdown{
-    background-color: #F7f7f7 ;
+
+#nav-dropdown {
+    background-color: #f8f9fa;
     font-size: smaller;
     position: absolute;
     inset: 0px 0px auto auto;
@@ -49,45 +58,276 @@ body,html{
     transform: translate(0px, 34px);
     padding: 3px;
 }
-.dropdown-divider{
+
+.dropdown-divider {
     margin: 3px;
 }
-#sideBar{
+
+#sideBar {
     scroll-snap-align: center;
     overflow: auto;
     text-align: center;
     margin-top: 1px;
     border-radius: 1%;
-    height:100%;
-    background-color: #50577A;
+    height: 100%;
+    background-color: #2b2d3a;
     width: 270px;
 }
-#lateralTitle{
+
+#lateralTitle {
     font-size: 30px;
-    color: #F7f7f7;
+    color: #f8f9fa;
 }
-#lateralDivider{
+
+#lateralDivider {
     margin: 8px;
-    color: #F7f7f7;
+    color: #f8f9fa;
 }
-#curso{
+
+#curso {
     margin-top: 5px;
-    color: #F7f7f7;
-    background-color: #404258;
+    color: #f8f9fa;
+    background-color: #1e2029;
 }
-.container-flex{
+
+.container-flex {
     width: 100%;
     height: calc(100% - 49px);
 }
-.row{
+
+.row {
     width: 100%;
     height: 100%
 }
-#dynamicContent{
+
+#dynamicContent {
     align-items: center;
-    margin-right: auto ;
+    margin-right: auto;
     margin-left: auto;
     margin-bottom: 0;
-    margin-top: 0 ;
-    border: 2px dotted #F7f7f7;
+    margin-top: 0;
+    border: 2px dotted #f8f9fa;
+}
+
+.container-flex {
+    margin-top: 20px;
+}
+
+#sideBar {
+    background-color: #27293a;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#lateralTitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#lateralDivider {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#dynamicContent {
+    padding: 20px;
+}
+
+.btn-dark {
+    background-color: #1e2029;
+    color: #f8f9fa;
+    margin-bottom: 10px
+}
+.btn-dark:hover {
+    background-color: #14161f;
+    color: #f8f9fa;
+}
+
+.btn-primary {
+    margin-right: 10px;
+}
+
+.dropdown-menu {
+    min-width: 150px;
+    margin-top: 8px;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 6px 12px;
+}
+
+.dropdown-menu .dropdown-divider {
+    margin: 4px 0;
+}
+
+.divider {
+    border-top: 1px solid #dee2e6;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    #dynamicContent {
+        padding-top: 0;
+    }
+}
+
+.table {
+    margin-bottom: 20px;
+}
+
+.table thead th {
+    background-color: #1e2029;
+    color: #f8f9fa;
+    font-weight: bold;
+}
+
+.table tbody td {
+    vertical-align: middle;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Espaçamento entre os botões da navbar */
+.navbar .nav-link {
+    margin-right: 10px;
+}
+
+.navbar .nav-link:last-child {
+    margin-right: 0;
+}
+
+/*botoes*/
+.delete-btn {
+    margin-top: 5px;
+    display: block;
+}
+
+.delete-form {
+    display: inline;
+}
+
+/*botoes da nav bar*/
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Cores alteradas para branco */
+body,
+html,
+#lateralTitle,
+#lateralDivider,
+#curso {
+    color: #f8f9fa;
+}
+
+/* Cores alteradas para branco */
+.table thead th {
+    background-color: #1e2029;
+    color: #f8f9fa;
+    font-weight: bold;
+}
+
+.btn-dark,
+.btn-dark:hover {
+    background-color: #1e2029;
+    color: #f8f9fa;
+}
+
+.btn-primary {
+    margin-right: 10px;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.dropdown-menu {
+    min-width: 150px;
+    margin-top: 8px;
+    background-color: #f8f9fa;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 6px 12px;
+    color: #1e2029;
+}
+
+.dropdown-menu .dropdown-divider {
+    margin: 4px 0;
+    border-color: #dee2e6;
+}
+
+.divider {
+    border-top: 1px solid #dee2e6;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    #dynamicContent {
+        padding-top: 0;
+    }
+}
+
+
+/*letras da turma*/
+/* Fonte utilizada na aplicação */
+* {
+    scroll-behavior: smooth;
+    font-family: 'Open Sans';
+}
+
+body, html {
+    height: 100%;
+    background-color: #1e2029;
+}
+
+/* Restante do seu CSS existente */
+
+/* Cor das letras */
+body {
+    color: #fff;
+}
+
+.table thead th {
+    color: #fff;
+}
+
+.table tbody td {
+    color: #fff;
+}
+
+.p {
+    color: #fff;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.btn-center {
+    display: flex;
+    justify-content: center;
 }
